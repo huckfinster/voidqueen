@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Void Queen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Josefin+Sans:wght@400;500;600&family=Jaro&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3e1cc;
+      --panel: rgb(32, 24, 16);
+    
+      --panel-2: rgb(32, 24, 16);
+      --text: #f0d39a;
+      --accent-pink: #F548A5;
+      --accent-yellow: #F1E03F;
+      --accent-blue: #4FADDE;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html, body { width: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: 'Josefin Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 12px;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    .card {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      background: #201d1a;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+      border-radius: 2px;
+    }
+    .header-grouped img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+    .header-grouped { line-height: 0; }
+    .headline {
+      background: var(--panel-2);
+      text-align: center;
+      padding: 12px 22px 14px;
+      margin-top: -22px;
+      margin-bottom: -12px;
+    }
+    .headline h1 {
+      margin: 0 0 14px;
+      font-family: 'Anton SC', sans-serif;
+      font-size: 28px;
+     
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .headline p {
+      margin: 0;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .buttons-strip {
+      position: relative;
+      background: url('assets/leo_pattern.png') center/cover no-repeat;
+      text-align: center;
+      padding: 24px 18px 26px;
+      margin-bottom: -10px;
+    }
+    .circle-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .circle-links a {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      font-family: 'Jaro', sans-serif;
+      color: #fff;
+      font-size: 25px;
+      letter-spacing: 0.5px;
+      transition: transform 0.18s ease, box-shadow 0.22s ease, background-color 0.25s ease, color 0.25s ease;
+    }
+    .circle-links a:nth-child(1) {
+      background: var(--accent-pink);
+      color: #FAFF66;
+      box-shadow: 0 7px 0 rgba(175, 33, 118, 0.95);
+    }
+    .circle-links a:nth-child(2) {
+      background: var(--accent-yellow);
+      color: #C260F4;
+      box-shadow: 0 7px 0 rgba(184, 150, 34, 0.95);
+    }
+    .circle-links a:nth-child(3) {
+      background: var(--accent-blue);
+      color: #75F4B6;
+      box-shadow: 0 7px 0 rgba(19, 105, 158, 0.95);
+    }
+    .circle-links a:hover {
+      transform: translateY(-3px);
+    }
+    .circle-links a:nth-child(1):hover {
+      background: #4AB849;
+      color: #3FFFF9;
+      box-shadow: 0 12px 0 #2f7c2f, 0 14px 26px rgba(74, 184, 73, 0.3);
+    }
+    .circle-links a:nth-child(2):hover {
+      background: #A049B8;
+      color: #3FFF55;
+      box-shadow: 0 12px 0 #612d73, 0 14px 26px rgba(160, 73, 184, 0.3);
+    }
+    .circle-links a:nth-child(3):hover {
+      background: #B8494B;
+      color: #FBF84D;
+      box-shadow: 0 12px 0 #7c3032, 0 14px 26px rgba(184, 73, 75, 0.3);
+    }
+    .circle-links a:nth-child(1):hover {
+      box-shadow: 0 12px 0 rgba(23, 113, 38, 0.95), 0 14px 26px rgba(0, 0, 0, 0.25);
+    }
+    .circle-links a:nth-child(2):hover {
+      box-shadow: 0 12px 0 rgba(124, 32, 115, 0.95), 0 14px 26px rgba(0, 0, 0, 0.25);
+    }
+    .circle-links a:nth-child(3):hover {
+      box-shadow: 0 12px 0 rgba(125, 30, 42, 0.95), 0 14px 26px rgba(0, 0, 0, 0.25);
+    }
+    .contact {
+      background: var(--panel);
+      text-align: center;
+      padding: 16px 20px 6px;
+      margin-top: -8px;
+      margin-bottom: -8px;
+    }
+    .contact h2 {
+      margin: 0 0 18px;
+      font-family: 'Anton SC', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact h2::before,
+    .contact h2::after {
+      content: '★';
+      font-size: 14px;
+      color: var(--text);
+      position: relative;
+      top: -1px;
+    }
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 12px;
+    }
+    .contact-icons a {
+      display: inline-block;
+      padding: 0;
+      background: none;
+      border-radius: 0;
+      width: auto;
+      height: auto;
+      box-shadow: none;
+      transition: none;
+    }
+    .contact-icons a:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .contact-icons img {
+      width: 90px;
+      height: 90px;
+      display: block;
+    }
+    footer {
+      background: var(--panel);
+      color: #b29b7a;
+      font-size: 12px;
+      line-height: 1.35;
+      text-align: left;
+      padding: 4px 14px 14px;
+    }
+    footer .divider-line {
+      height: 1px;
+      background: #d6bd96;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 520px) {
+      body {
+        padding: 12px 8px;
+      }
+      .card {
+        max-width: 100%;
+        width: 100%;
+        box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+      }
+      .headline {
+        padding: 10px 16px 12px;
+        margin-top: -18px;
+        margin-bottom: -8px;
+      }
+      .headline h1 { font-size: 24px; }
+      .headline p { font-size: 14px; line-height: 1.5; }
+      .buttons-strip {
+        padding: 18px 12px 20px;
+        margin-bottom: -6px;
+      }
+      .circle-links { gap: 12px; }
+      .circle-links a { width: 96px; height: 96px; font-size: 18px; }
+      .contact {
+        padding: 14px 14px 6px;
+        margin-bottom: -6px;
+      }
+      .contact h2 { font-size: 22px; }
+      .contact-icons { gap: 16px; margin-bottom: 10px; }
+      .contact-icons img { width: 72px; height: 72px; }
+      footer {
+        padding: 4px 12px 12px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header-grouped">
+      <img src="assets/Header_grouped.png" alt="Void Queen banner and band photo">
+    </div>
+    <div class="headline">
+      <h1>We're Void Queen!</h1>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </div>
+    <div class="buttons-strip">
+      <div class="circle-links">
+        <a href="#" aria-label="Music link">MUSIC</a>
+        <a href="#" aria-label="Whatever link">WHAT<br>EVER</a>
+        <a href="#" aria-label="Video link">VIDEO</a>
+      </div>
+    </div>
+    <div class="contact">
+      <h2>CONTACT</h2>
+      <div class="contact-icons">
+        <a href="#" aria-label="Instagram">
+          <img src="assets/icon_insta.png" alt="Instagram">
+        </a>
+        <a href="mailto:merlin.niklasch@gmail.com" aria-label="Email">
+          <img src="assets/icon_mail.png" alt="Mail">
+        </a>
+      </div>
+    </div>
+    <footer>
+      <div class="divider-line"></div>
+      <div>© 2026 Void Queen</div>
+      <div>Legal Notice · Void Queen · Represented by Merlin Niklasch · Grünberger Str. 85 · 10245 Berlin</div>
+      <div>Mail: merlin.niklasch@gmail.com</div>
+      <div>Responsible for content (§ 18 MStV): Merlin Niklasch · Disclaimer: No liability for accuracy, completeness, timeliness, or external links.</div>
+    </footer>
+  </div>
+</body>
+</html>
